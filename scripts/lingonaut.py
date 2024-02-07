@@ -1,4 +1,3 @@
-# import torch
 from concurrent.futures import ThreadPoolExecutor
 import os
 import pyaudio
@@ -8,8 +7,6 @@ from tempfile import TemporaryDirectory
 import ollama
 import torch
 from TTS.api import TTS
-# from openvoice.se_extractor import get_se
-# from openvoice.api import BaseSpeakerTTS, ToneColorConverter
 
 
 def play_audio(file_path):
@@ -113,8 +110,8 @@ def process_stream(user_input):
                 sentence = "".join(current_sentence)
                 tts.tts_to_file(
                     text=sentence,
-                    # speaker=voices[10],
-                    # language="en",
+                    speaker=voices[10],
+                    language="en",
                     file_path=wav_path,
                     split_sentences=False,
                 )
@@ -146,4 +143,4 @@ def process_stream(user_input):
 
 
 if __name__ == "__main__":
-    process_stream("How do you say that you're going to bed in Chinese?")
+    process_stream("How do you say that you're going to bed in Russian?")
